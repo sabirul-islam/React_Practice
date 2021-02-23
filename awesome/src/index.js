@@ -1,10 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import Card from './Cards';
-// import react, { j, my } from './import'
-// import * as all from './import'
-// import Hello from './Heading'
-import Data from "./Data";
+import App from './App';
 import './index.css';
 
 /*
@@ -26,28 +22,17 @@ const list = {
 
 
 ReactDom.render(
-<>
-<h1 className="heading_style">Top 3 Dhingcha</h1>
-
-{Data.map((v) => {
-    return(
-        <Card 
-        imgsrc= {v.imgsrc}
-        title= {v.title}
-        sname= {v.sname}
-        link= {v.link}
-            
-        />
-    )
-})}
+    <App/>
 
 
 
-{/* <Card imgsrc="https://image.freepik.com/free-psd/unicolor-desktop-screen-mockup_157104-636.jpg" 
+
+
+/* <Card imgsrc="https://image.freepik.com/free-psd/unicolor-desktop-screen-mockup_157104-636.jpg" 
 title="Original Design Series" 
 sname="stranger things" 
-link="https://mdsabirulislam.blogspot.com"/> */}
-</>
+link="https://mdsabirulislam.blogspot.com"/> */
+
 
 
 
