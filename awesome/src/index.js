@@ -1,9 +1,11 @@
-import React from 'react'
-import ReactDom from 'react-dom'
-// import List from "./List"
-// import App from "./App"
+import React from 'react';
+import ReactDom from 'react-dom';
+import Card from './Cards';
+// import react, { j, my } from './import'
+// import * as all from './import'
 // import Hello from './Heading'
-import './index.css'
+import Data from "./Data";
+import './index.css';
 
 /*
 const fname = "Sabirul"
@@ -16,31 +18,62 @@ const list = {
 }
 */
 
-let time = new Date(2021, 5, 5, 21)
-time = time.getHours()
-let greetings = ''
-const cssStyle = {}
+// const newData = Data.map((v)=>{
+//     return `series name is ${v.sname}`
+// })
+// console.log(newData);
 
-if (time >= 1 && time < 12) {
-    greetings = "Good Morning"
-    cssStyle.color = 'green'
-} else if(time >= 12 && time < 19){
-    greetings = "Good afternoon"
-    cssStyle.color = 'orange'
-}else{
-    greetings = "Good Night"
-    cssStyle.color = 'black'
-}
+
 
 ReactDom.render(
-    <>
-    {/* <App/> */}
-    {/* <Hello/> */}
-    <h1>Hello Brother, <span style={cssStyle}>{greetings}</span></h1>
-    {/* <List/> */}
+<>
+<h1 className="heading_style">Top 3 Dhingcha</h1>
+
+{Data.map((v) => {
+    return(
+        <Card 
+        imgsrc= {v.imgsrc}
+        title= {v.title}
+        sname= {v.sname}
+        link= {v.link}
+            
+        />
+    )
+})}
+
+
+
+{/* <Card imgsrc="https://image.freepik.com/free-psd/unicolor-desktop-screen-mockup_157104-636.jpg" 
+title="Original Design Series" 
+sname="stranger things" 
+link="https://mdsabirulislam.blogspot.com"/> */}
+</>
+
+
+
+   /*
+   <>
+    <App/>
+
+    <ul>
+        <li>sum of two number is { all.add(40,4) }</li>
+        <li>sub of two number is { all.sub(30,3) }</li>
+        <li>div of two number is { all.mult(10,3) }</li>
+        <li>mult of two number is { all.div(10,3) }</li>
+        {/* <li>{react}</li>
+        <li>{j}</li>
+        <li>{my()}</li> 
+         <li>{all.default}</li>
+        <li>{all.j}</li>
+        <li>{all.my()}</li> 
+    </ul>
     </>
+     <Hello/> 
     
- /*
+     <List/> 
+    
+    
+ 
 <List>
     <h1 className="header">Mr. {`Md ${fname} ${lname}`}</h1>
     <div className="img_div">
