@@ -2,26 +2,21 @@ import { React, useState } from 'react';
 
 const App = () => {
 
-    let [count, setCount] = useState(0)
+    let currentTime = new Date().toLocaleTimeString()
+
+    let [time, setTime] = useState(currentTime)
     
-    const IncNum = () =>{
-        setCount(count+1)
+    const getTime = () =>{
+        currentTime = new Date().toLocaleTimeString()
+        setTime(currentTime)
     }
-    
-    const IncNum2 = () =>{
-        if(count === 0){
-            setCount(0)
-        }else{
-            setCount(count-1)
-        }
-    }
+
+    // setInterval(getTime, 1000)
 
     return(
         <> 
         <div>
-            <h1>{count}</h1>
-            <button onClick= {IncNum}>Increase</button>
-            <button onClick= {IncNum2}>Decrease</button>
+            <h1>{time}</h1>
         </div>
             
         </>
