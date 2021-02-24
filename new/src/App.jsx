@@ -1,29 +1,36 @@
 import { React, useState } from 'react';
 
 const App = () => {
-    const purple = "#8e44ad"
-    const [bg, setBg] = useState(purple)
-    const [name, setName] = useState("Click Me")
+    const [vname, setVname] = useState('')
+    const [lastName, setLastName] = useState('')
+    const [name, setName] = useState()
 
-    const bgChange = () =>{
-        setBg("#34495e")
-        setName("Done")        
+    const InputEvent = (event) =>{
+        setVname(event.target.value);             
     }
 
-    const bgBack = () =>{
-        setBg("#8e44ad")
-        setName("Click Me") 
+    const InputEvent2 = (event) =>{
+        setLastName(event.target.value);             
+    }
+
+    const showName = (event)=>{
+        event.preventDefault()
+        setName(`Hello, ${vname} ${lastName}`)
     }
 
     return(
-        <> 
-        <div style={{backgroundColor: bg}}>
-            {/* <button onClick= {bgChange} onDoubleClick={bgBack}>{name}</button> */}
-            <button onMouseEnter= {bgChange} onMouseLeave={bgBack}>{name}</button>
-        </div>
-        
-            
-        </>
+<> 
+    <div className="main_div">
+        <form onSubmit= {showName}>
+            <div>
+                <h1>{name}</h1>
+                <input type="text" placeholder="Enter Your Name" value={vname} onChange={InputEvent}/>
+                <input type="text" placeholder="Enter Your Password" value={lastName} onChange={InputEvent2}/>
+                <button type="submit➰">Submit </button>
+            </div>
+        </form>
+    </div>      
+</>
     )
 }
 
