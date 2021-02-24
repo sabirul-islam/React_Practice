@@ -1,31 +1,45 @@
 import { React, useState } from 'react';
 
 const App = () => {
-    const [vname, setVname] = useState('')
-    const [lastName, setLastName] = useState('')
-    const [name, setName] = useState()
+    const [fullName, setFullName] = useState({
+        fname: "",
+        lname: "",
+    })
 
     const InputEvent = (event) =>{
-        setVname(event.target.value);             
+        const name = event.target.name
+        const value = event.target.value
+        
+        setFullName((preValue)=>{
+            if (name === 'fname') {
+                return{
+                    fname: value,
+                    lname: preValue.lname,
+                }
+            } else if (name === 'lname') {
+                return{
+                    fname: preValue.fname,
+                    lname: value,
+                }
+            }
+        })
     }
 
-    const InputEvent2 = (event) =>{
-        setLastName(event.target.value);             
-    }
-
-    const showName = (event)=>{
+    const onsubmits = (event)=>{
         event.preventDefault()
-        setName(`Hello, ${vname} ${lastName}`)
+        // setFullName(`Hello, ${fullName.fname} ${fullName.lname}`)
+        alert("form submitted")
     }
 
     return(
 <> 
     <div className="main_div">
-        <form onSubmit= {showName}>
+        <form onSubmit= {onsubmits}>
             <div>
-                <h1>{name}</h1>
-                <input type="text" placeholder="Enter Your Name" value={vname} onChange={InputEvent}/>
-                <input type="text" placeholder="Enter Your Password" value={lastName} onChange={InputEvent2}/>
+                <h1>{fullName.fname} {fullName.lname}</h1>
+                <input type="text" placeholder="Enter Your Name" value={fullName.fname} name="fname" onChange={InputEvent}/>
+
+                <input type="text" placeholder="Enter Your Password" value={fullName.lname} name="lname" onChange={InputEvent}/>
                 <button type="submit➰">Submit </button>
             </div>
         </form>
