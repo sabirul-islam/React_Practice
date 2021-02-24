@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #d2dbdd;
 }
 
 div{
@@ -14,14 +13,8 @@ div{
   flex-direction: column;
 }
 
-h1{
-  color: #fff;
-  background: transparent;
-  text-shadow: 0 2px 2px #000;
-}
-
 button{
-  padding: 12px 20px;
+  padding: 15px 20px;
   background-color: #9b59b6;
   color: white;
   border: 2px solid #ecf0f1;
