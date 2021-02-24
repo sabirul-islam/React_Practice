@@ -1,15 +1,31 @@
-import React from 'react'
-import SlotM from './SlotMatch'
+import { React, useState } from 'react';
 
 const App = () => {
-    return <>
-        <h1 className="heading_style"> 💛 Welcome To <span>Slot Machine Game</span> 💛 </h1>
-        <div className="slotMachine">
-            <SlotM x = '❤' y = '❤' z = '❤'/>
-            <SlotM x = '❤' y = '💞' z = '💛'/>
-            <SlotM x = '💘' y = '❤' z = '💛'/>
+
+    let [count, setCount] = useState(0)
+    
+    const IncNum = () =>{
+        setCount(count+1)
+    }
+    
+    const IncNum2 = () =>{
+        if(count === 0){
+            setCount(0)
+        }else{
+            setCount(count-1)
+        }
+    }
+
+    return(
+        <> 
+        <div>
+            <h1>{count}</h1>
+            <button onClick= {IncNum}>Increase</button>
+            <button onClick= {IncNum2}>Decrease</button>
         </div>
-    </>
+            
+        </>
+    )
 }
 
 export default App
