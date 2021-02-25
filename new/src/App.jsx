@@ -9,10 +9,19 @@ const App = () => {
     })
 
     const InputEvent = (event) =>{
-        const name = event.target.name
-        const value = event.target.value
+        /*const name = event.target.name
+        const value = event.target.value*/
+
+        const {name, value} = event.target
         
         setFullName((preValue)=>{
+            console.log(preValue);
+            return{
+            ...preValue,
+            [name]: value
+        }
+
+            /*
             if (name === 'fname') {
                 return{
                     fname: value,
@@ -42,12 +51,12 @@ const App = () => {
                     phone: value,
                 }
             }
+            */
         })
     }
 
     const onsubmits = (event)=>{
         event.preventDefault()
-        // setFullName(`Hello, ${fullName.fname} ${fullName.lname}`)
         alert("form submitted")
     }
 
@@ -57,17 +66,41 @@ const App = () => {
         <form onSubmit= {onsubmits}>
             <div>
                 <h1>{fullName.fname} {fullName.lname}</h1>
-                <h2>{fullName.email}</h2>
-                <h3>{fullName.phone}</h3>
+                <h3>{fullName.email}</h3>
+                <h4>{fullName.phone}</h4>
+                <h5>{fullName.qualification}</h5>
 
-                <input type="text" placeholder="Enter Your Name" value={fullName.fname} name="fname" onChange={InputEvent}/>
+                <input type="text" 
+                placeholder="Enter Your Name" 
+                value={fullName.fname} 
+                name="fname" 
+                onChange={InputEvent}/>
 
-                <input type="text" placeholder="Enter Your Password" value={fullName.lname} name="lname" onChange={InputEvent}/>
 
-                <input type="email" placeholder="Enter Your Email" value={fullName.email} name="email" onChange={InputEvent}/>
+                <input type="text" 
+                placeholder="Enter Your Password" 
+                value={fullName.lname} 
+                name="lname" 
+                onChange={InputEvent}/>
 
-                <input type="number" placeholder="Enter Your Mobile Number" value={fullName.phone} name="phone" onChange={InputEvent}/>
+                <input type="email" 
+                placeholder="Enter Your Email" 
+                value={fullName.email} 
+                name="email" 
+                onChange={InputEvent} 
+                autoComplete="off"/>
 
+                <input type="number" 
+                placeholder="Enter Your Mobile Number" 
+                value={fullName.phone} 
+                name="phone" 
+                onChange={InputEvent}/>
+
+                <input type="text" 
+                placeholder="Enter Your Qualification" 
+                value={fullName.qualification} 
+                name="qualification" 
+                onChange={InputEvent}/>
 
                 <button type="submit➰">Submit </button>
             </div>
